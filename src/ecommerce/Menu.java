@@ -2,12 +2,6 @@ package ecommerce;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import conta.model.ContaCorrente;
-import conta.model.ContaPoupanca;
-
-import java.io.IOException;
-
 import ecommerce.controller.ProdutoController;
 import ecommerce.model.Acessorios;
 import ecommerce.model.Laptop;
@@ -87,7 +81,7 @@ public class Menu {
         	switch(categoria) {
         	case 1 -> {
         		System.out.println("Digite o modelo de SO"
-        				+ "2 que você deseja para o seu Laptop:");
+        				+ " que você deseja para o seu Laptop:");
         		leia.skip("\\R?");
         		tipoOS = leia.nextLine();
         		produtos.cadastrar(new Laptop(produtos.gerarCodigo(), nome, categoria, valor, tipoOS));
@@ -178,7 +172,6 @@ public class Menu {
 	        Scanner Scanner = new Scanner(System.in);
 	        System.out.println("\n\nPressione Enter para continuar ou 6 para finalizar");
 	        
-	        // Agora, ao invés de usar System.in.read(), vamos usar scanner.nextLine() para consumir a quebra de linha
 	        Scanner.nextLine();
 	    } catch (Exception e) {
 	        System.out.println("Erro ao aguardar a tecla Enter: " + e.getMessage());
