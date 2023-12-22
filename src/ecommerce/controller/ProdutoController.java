@@ -14,7 +14,7 @@ public class ProdutoController implements Pedido {
 		var produto = buscarNaCollection(codigo);
 		
 		if(produto != null) produto.visualizar();
-		else System.out.println("O produto de código: "+codigo+" não foi encontrada!");
+		else System.out.println("O produto de código: "+codigo+" não foi encontrado!");
 
 	}
 	
@@ -32,7 +32,7 @@ public class ProdutoController implements Pedido {
 	@Override
 	public void cadastrar(Produto produto) {
 		listarProdutos.add(produto);
-		System.out.println("O produto "+ produto.getCodigo() + " foi criado com sucesso!");
+		System.out.println("O produto "+ produto.getNome() + " foi criado com sucesso!");
 		
 	}
 
@@ -45,9 +45,9 @@ public class ProdutoController implements Pedido {
 	        System.out.println("Índice do produto na lista: " + index);
 	        
 	        listarProdutos.set(index, produto);
-	        System.out.println("\nO produto de código " + produto.getCodigo() + " foi atualizado com sucesso!");
+	        System.out.println("\nO produto foi atualizado com sucesso!");
 	    } else {
-	        System.out.println("\\nO produto de código " + produto.getCodigo() + " não foi encontrado!");
+	        System.out.println("\\nO produto não foi encontrado!");
 	    }
 		
 	}
@@ -57,15 +57,14 @@ public class ProdutoController implements Pedido {
 		var produto = buscarNaCollection(codigo);
 		boolean removido = listarProdutos.remove(produto);
 		
-		
         if (removido) {
-            System.out.println("\nO produto de código " + codigo + " foi deletado com sucesso!");
+            System.out.println("\nO produto de código " + produto.getCodigo() + " foi deletado com sucesso!");
         } else if (!removido) {
-        	System.out.println("\nO produto de código " + codigo +" nao foi encontrado!");
+        	System.out.println("\nO produto de código " + produto.getCodigo() +" nao foi encontrado!");
     }
 }
 	
-	public int gerarNumero() {
+	public int gerarCodigo() {
 		return ++codigo;
 	}
 	
